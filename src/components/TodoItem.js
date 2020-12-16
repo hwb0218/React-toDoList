@@ -7,14 +7,13 @@ class TodoItem extends Component {
     }
 
     render() {
-        const { text, checked, id, onToggle, onRemove } = this.props;
-        console.log(id);
+        const { text, checked, id, onToggle, onRemove, color } = this.props;
         return (
             <div className='todo-item' onClick={() => onToggle(id)}>
                 <div className='remove' onClick={(e) => {
                     e.stopPropagation();
                     onRemove(id)}}>❌</div>
-                <div className={`todo-text ${checked && 'checked'}`}>
+                <div className={`todo-text ${checked && 'checked'}`} style={{color}}>
                     <div>{text}</div>
                 </div>
                 {
